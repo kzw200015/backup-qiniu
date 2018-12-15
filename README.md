@@ -10,7 +10,7 @@
 `git clone https://github.com/kzw200015/backup-qiniu.git`
 
 安装 python 环境
-apt install -y python
+`apt install -y python`
 
 进入脚本目录
 `cd /root/backup-qiniu`
