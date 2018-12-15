@@ -7,20 +7,27 @@
 ## 食用方法
 
 直接使用git clone整个库
+
 `git clone https://github.com/kzw200015/backup-qiniu.git`
 
 安装 python 环境
+
 `apt install -y python`
 
 进入脚本目录
+
 `cd /root/backup-qiniu`
 
 安装依赖
+
 `apt install -y python3-pip`
+
 `pip3 install qiniu`
 
 配置脚本略过
 
+
 执行脚本
+
 `python3 main.py`
 
