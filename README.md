@@ -12,7 +12,7 @@
 
 安装 python 环境
 
-`apt install -y python`
+`apt install -y python3`
 
 进入脚本目录
 
