@@ -28,11 +28,11 @@ bucket = BucketManager(auth)
 print('正在打包')
 os.chdir(backup_pre_dir)
 for each_dir in backup_dir:
-    os.system('zip -r ' + each_dir + '.zip ' + each_dir)
+    os.system('zip -q -r ' + each_dir + '.zip ' + each_dir)
 for each_database in backup_database:
     os.system('mysqldump -u' + mysql_user + ' -p' + mysql_passwd + ' ' + each_database + ' > ' + each_database + '.sql')
 
-os.system('zip -r ' + key + ' *.zip *.sql')
+os.system('zip -q -r ' + key + ' *.zip *.sql')
 
 print('正在上传')
 ret, info = put_file(token, key, localfile)
