@@ -33,11 +33,20 @@ for each_database in backup_database:
     os.system('mysqldump -u' + mysql_user + ' -p' + mysql_passwd + ' ' + each_database + ' > ' + each_database + '.sql')
 
 os.system('zip -r ' + key + ' *.zip *.sql')
+
 print('正在上传')
-put_file(token, key, localfile)
+ret, info = put_file(token, key, localfile)
+print(info)
+assert ret['key'] == key
+assert ret['hash'] == etag(localfile)
+
 print('正在清理临时文件')
 os.system('rm -rf *.zip *.sql')
+
 print('正在删除旧备份')
-bucket.delete(bucket_name, old_key)
+ret, info = bucket.delete(bucket_name, old_key)
+print(info)
+assert ret == {}
+
 os.chdir(cwd)
 print('操作完成')
