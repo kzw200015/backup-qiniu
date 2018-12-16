@@ -14,6 +14,7 @@ backup_name = 'website-backup' #备份的名称
 backup_dir = ['typecho','wordpress'] #你要备份的目录，用单引号包裹，不同项之间用逗号隔开
 backup_pre_dir = '/home/wwwroot/' #备份目录的上级目录，结尾不要漏掉斜杠
 backup_database = ['typecho','wordpress'] #备份的数据库名，用单引号包裹，不同项之间用逗号隔开
+mysql_host = '127.0.0.1' #数据库地址，默认为本地
 mysql_user = 'root' #数据库用户名
 mysql_passwd = '' #数据库密码
 ### 配置部分结束
@@ -31,7 +32,7 @@ os.chdir(backup_pre_dir)
 for each_dir in backup_dir:
     os.system('zip -q -r ' + each_dir + '.zip ' + each_dir)
 for each_database in backup_database:
-    os.system('mysqldump -u' + mysql_user + ' -p' + mysql_passwd + ' ' + each_database + ' > ' + each_database + '.sql')
+    os.system('mysqldump -h' + mysql_host + ' -u' + mysql_user + ' -p' + mysql_passwd + ' ' + each_database + ' > ' + each_database + '.sql')
 
 os.system('zip -q -r ' + key + ' *.zip *.sql')
 
