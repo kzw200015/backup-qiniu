@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: UTF-8 -*-
+
 from qiniu import Auth, put_file, etag, BucketManager
 import qiniu.config
 from datetime import datetime, timedelta

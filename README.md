@@ -24,10 +24,18 @@
 
 `pip3 install qiniu`
 
-配置脚本略过
-
+按照脚本内的说明进行配置
 
 执行脚本
 
-`python3 main.py`
+`./main.py`
 
+## 定时任务
+用`cron`实现
+执行`crontab -e`，加入以下内容
+```
+LANG='UTC-8'
+LC_ALL='en_US.UTF-8'
+0 2 * * * /root/backup-qiniu/main.py
+```
+保存退出即可，这样每天凌晨两点就会自动执行一次任务
