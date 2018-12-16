@@ -24,7 +24,7 @@
 
 `pip3 install qiniu`
 
-按照脚本内的说明进行配置
+按照`config.py`内的说明进行配置
 
 执行脚本
 
