@@ -37,7 +37,6 @@ os.system('zip -q -r ' + key + ' *.zip *.sql')
 
 print('正在上传')
 ret, info = put_file(token, key, localfile)
-print(info)
 assert ret['key'] == key
 assert ret['hash'] == etag(localfile)
 
