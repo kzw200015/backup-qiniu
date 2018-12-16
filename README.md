@@ -24,6 +24,10 @@
 
 `pip3 install qiniu`
 
+把配置文件复制一份
+
+`cp config.py.example config.py`
+
 按照`config.py`内的说明进行配置
 
 执行脚本
