@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-
 from qiniu import Auth, put_file, etag, BucketManager
 import qiniu.config
 from datetime import datetime, timedelta
 import os
-
 
 ### 配置部分
 access_key = 'Access_Key' #AK，在七牛云的后台查看
@@ -19,7 +17,6 @@ backup_database = ['typecho','wordpress'] #备份的数据库名，用单引号�
 mysql_user = 'root' #数据库用户名
 mysql_passwd = '' #数据库密码
 ### 配置部分结束
-
 
 auth = Auth(access_key, secret_key)
 old_key = backup_name + '-' + (datetime.now() - timedelta(days=3)).strftime('%Y-%m-%d') + '.zip'
@@ -48,9 +45,7 @@ print('正在清理临时文件')
 os.system('rm -rf *.zip *.sql')
 
 print('正在删除旧备份')
-ret, info = bucket.delete(bucket_name, old_key)
-print(info)
-assert ret == {}
+bucket.delete(bucket_name, old_key)
 
 os.chdir(cwd)
 print('操作完成')
