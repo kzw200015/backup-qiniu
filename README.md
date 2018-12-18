@@ -38,7 +38,7 @@
 用`cron`实现
 执行`crontab -e`，加入以下内容
 ```
-LANG='UTC-8'
+LANG='en_US.UTF-8'
 LC_ALL='en_US.UTF-8'
 0 2 * * * /root/backup-qiniu/main.py
 ```
